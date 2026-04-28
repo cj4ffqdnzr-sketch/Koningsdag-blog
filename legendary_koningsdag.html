@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGENDARY: Koningsdag 2026 — A Barney Stinson Report</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #FF6200;
+  --deep: #B84500;
+  --black: #0a0a0a;
+  --dark: #141414;
+  --darker: #1c1c1c;
+  --cream: #FFF5E0;
+  --gold: #FFCC00;
+  --muted: rgba(255,245,224,0.55);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--cream);font-family:'Montserrat',sans-serif;line-height:1.6;overflow-x:hidden;}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;width:100%;background:rgba(10,10,10,0.96);border-bottom:2px solid var(--orange);padding:14px 48px;display:flex;align-items:center;justify-content:space-between;z-index:999;backdrop-filter:blur(12px);}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--orange);letter-spacing:3px;}
+.nav-links a{color:var(--cream);text-decoration:none;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-left:32px;transition:color .2s;}
+.nav-links a:hover{color:var(--orange);}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:100px 40px 60px;position:relative;overflow:hidden;background:var(--black);}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 50%,rgba(255,98,0,.13) 0%,transparent 70%);pointer-events:none;}
+.hero-crown{font-size:72px;margin-bottom:16px;display:inline-block;animation:bob 3s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(-12px);}}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(88px,16vw,200px);color:var(--orange);letter-spacing:10px;line-height:.88;position:relative;text-shadow:0 0 80px rgba(255,98,0,.3);}
+.hero-sub1{font-family:'Bebas Neue',sans-serif;font-size:clamp(22px,3.5vw,44px);color:var(--cream);letter-spacing:6px;margin-top:8px;}
+.hero-sub2{font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:3px;text-transform:uppercase;margin-top:18px;}
+.wait-badge{display:inline-block;margin-top:28px;font-family:'Bebas Neue',sans-serif;font-size:clamp(14px,2.5vw,26px);color:var(--gold);letter-spacing:5px;animation:glow 2.4s ease-in-out infinite;}
+@keyframes glow{0%,100%{opacity:1;text-shadow:0 0 20px rgba(255,204,0,.6);}50%{opacity:.55;text-shadow:none;}}
+.scroll-down{position:absolute;bottom:28px;font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,245,224,.3);letter-spacing:3px;text-transform:uppercase;}
+
+/* ── MARQUEE ── */
+.marquee-strip{background:var(--orange);padding:16px 0;overflow:hidden;white-space:nowrap;}
+.marquee-inner{display:inline-block;animation:scroll 22s linear infinite;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:5px;color:var(--black);}
+@keyframes scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ── STATS ── */
+.stats-wrap{max-width:1100px;margin:0 auto;padding:0 40px;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--orange);margin:50px 0;}
+.stat{background:var(--dark);padding:28px;text-align:center;}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:54px;color:var(--orange);line-height:1;}
+.stat-l{font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+
+/* ── SECTIONS ── */
+.section{padding:80px 40px;max-width:1100px;margin:0 auto;}
+.section-eyebrow{font-family:'Space Mono',monospace;font-size:11px;color:var(--orange);letter-spacing:4px;text-transform:uppercase;margin-bottom:10px;}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(52px,7vw,96px);color:var(--cream);letter-spacing:4px;line-height:.95;margin-bottom:44px;}
+
+/* ── BLOG ── */
+.blog-card{background:var(--dark);border:1px solid rgba(255,98,0,.25);border-left:5px solid var(--orange);padding:44px;margin-bottom:28px;}
+.blog-date{font-family:'Space Mono',monospace;font-size:10px;color:var(--orange);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:14px;}
+.blog-card h3{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:2px;margin-bottom:22px;}
+.blog-card p{font-size:15px;line-height:1.85;color:rgba(255,245,224,.88);margin-bottom:16px;}
+.hl{color:var(--orange);font-weight:900;}
+.go{color:var(--gold);font-style:italic;}
+.blockq{border-left:3px solid var(--gold);padding:16px 24px;margin:24px 0;background:rgba(255,204,0,.04);font-family:'Space Mono',monospace;font-style:italic;font-size:15px;color:var(--gold);line-height:1.6;}
+
+/* ── PHOTO GRID ── */
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:40px 0;}
+.photo-card{aspect-ratio:3/4;background:var(--darker);border:1px solid rgba(255,98,0,.2);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
+.photo-card::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(255,98,0,.08),rgba(255,204,0,.04));}
+.photo-tag-top{position:absolute;top:12px;left:12px;background:var(--orange);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:2px;padding:3px 10px;z-index:2;}
+.photo-pov{position:absolute;bottom:8px;right:10px;font-family:'Space Mono',monospace;font-size:9px;color:var(--orange);letter-spacing:1.5px;opacity:.7;z-index:2;}
+.photo-overlay{background:linear-gradient(transparent,rgba(0,0,0,.85));padding:60px 16px 18px;position:relative;z-index:2;}
+.photo-caption{font-family:'Space Mono',monospace;font-size:10px;color:var(--orange);letter-spacing:2px;text-transform:uppercase;}
+.photo-desc{font-size:13px;color:var(--cream);margin-top:4px;font-weight:700;}
+.photo-icon{font-size:64px;position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);opacity:.15;z-index:1;}
+
+/* ── ORANGE STRIP ── */
+.orange-strip{background:var(--orange);color:var(--black);text-align:center;padding:22px 40px;font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:6px;}
+
+/* ── DIVIDER ── */
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--orange),transparent);}
+
+/* ── CROSSWORD SECTION ── */
+.xword-section{background:var(--dark);padding:80px 40px;}
+.xword-header{text-align:center;margin-bottom:60px;}
+.xword-badge{display:inline-block;background:var(--orange);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:3px;padding:5px 18px;margin-bottom:14px;}
+.xword-header h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4.5vw,58px);color:var(--cream);letter-spacing:3px;line-height:1.1;}
+.xword-header .xword-subtitle{font-family:'Space Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:2px;margin-top:12px;}
+
+.xword-layout{display:flex;gap:48px;align-items:flex-start;max-width:920px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+
+#xgrid{display:grid;grid-template-columns:repeat(10,42px);grid-template-rows:repeat(12,42px);gap:2px;background:rgba(255,98,0,.35);border:2px solid var(--orange);padding:2px;flex-shrink:0;}
+.xc{width:42px;height:42px;background:#0a0a0a;position:relative;}
+.xc.on{background:#f5f0e8;}
+.xc.on input{position:absolute;inset:0;width:100%;height:100%;border:none;background:transparent;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:21px;color:#111;text-transform:uppercase;outline:none;cursor:pointer;caret-color:var(--orange);z-index:2;}
+.xc.on input:focus{background:rgba(255,98,0,.18);}
+.xc.on input.ok{color:#1a7a25;background:rgba(0,180,60,.12);}
+.xc.on input.no{color:#cc2200;background:rgba(200,30,0,.1);}
+.cn{position:absolute;top:2px;left:3px;font-size:8.5px;font-weight:900;color:#333;z-index:3;pointer-events:none;line-height:1;}
+
+.xclues{min-width:220px;flex:1;}
+.xclue-group{margin-bottom:28px;}
+.xclue-group h4{font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--orange);letter-spacing:2px;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid rgba(255,98,0,.25);}
+.xclue{display:flex;gap:10px;margin-bottom:9px;font-size:13px;color:rgba(255,245,224,.8);line-height:1.45;}
+.xclue-n{font-family:'Bebas Neue',sans-serif;font-size:14px;color:var(--orange);min-width:22px;flex-shrink:0;}
+
+.xcontrols{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
+.btn{font-family:'Bebas Neue',sans-serif;font-size:17px;letter-spacing:2px;padding:11px 26px;cursor:pointer;border:2px solid var(--orange);transition:all .2s;}
+.btn-p{background:var(--orange);color:var(--black);}
+.btn-p:hover{background:var(--deep);border-color:var(--deep);}
+.btn-s{background:transparent;color:var(--orange);}
+.btn-s:hover{background:rgba(255,98,0,.1);}
+.btn-d{background:transparent;color:var(--muted);border-color:rgba(255,245,224,.2);font-size:14px;}
+.btn-d:hover{color:var(--cream);border-color:rgba(255,245,224,.4);}
+#xmsg{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px;margin-top:18px;min-height:30px;}
+#xmsg.win{color:#22cc66;}
+#xmsg.lose{color:#ff4422;}
+
+/* ── FOOTER ── */
+footer{background:var(--black);border-top:2px solid rgba(255,98,0,.25);padding:48px 40px;text-align:center;}
+.footer-logo{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--orange);letter-spacing:6px;}
+footer p{font-family:'Space Mono',monospace;font-size:10px;color:rgba(255,245,224,.25);letter-spacing:2px;margin-top:14px;}
+
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .photo-grid{grid-template-columns:1fr 1fr;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .section{padding:60px 20px;}
+  .xword-section{padding:60px 20px;}
+  #xgrid{grid-template-columns:repeat(10,30px);grid-template-rows:repeat(12,30px);}
+  .xc{width:30px;height:30px;}
+  .xc.on input{font-size:15px;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">★ LEGENDARY KONINGSDAG</span>
+  <div class="nav-links">
+    <a href="#blog">The Story</a>
+    <a href="#photos">Photos</a>
+    <a href="#puzzle">Puzzle</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <span class="hero-crown">👑</span>
+  <h1>LEGENDARY</h1>
+  <p class="hero-sub1">KONINGSDAG 2026</p>
+  <p class="hero-sub2">A Barney Stinson Special Field Report · 27-04-26 · The Netherlands</p>
+  <span class="wait-badge">WAIT FOR IT... — DARY!</span>
+  <p class="scroll-down">↓ &nbsp; scroll for the full story &nbsp; ↓</p>
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <span class="marquee-inner">
+    ★ LEGEN — WAIT FOR IT — DARY &nbsp;&nbsp;★&nbsp;&nbsp; ORANJE BOVEN &nbsp;&nbsp;★&nbsp;&nbsp; 538 KONINGSDAG &nbsp;&nbsp;★&nbsp;&nbsp; REM · ROB · NICK &nbsp;&nbsp;★&nbsp;&nbsp; TRUE STORY &nbsp;&nbsp;★&nbsp;&nbsp; CHALLENGE ACCEPTED &nbsp;&nbsp;★&nbsp;&nbsp; LEGEN — WAIT FOR IT — DARY &nbsp;&nbsp;★&nbsp;&nbsp; ORANJE BOVEN &nbsp;&nbsp;★&nbsp;&nbsp; 538 KONINGSDAG &nbsp;&nbsp;★&nbsp;&nbsp; REM · ROB · NICK &nbsp;&nbsp;★&nbsp;&nbsp; TRUE STORY &nbsp;&nbsp;★&nbsp;&nbsp; CHALLENGE ACCEPTED &nbsp;&nbsp;★&nbsp;&nbsp;
+  </span>
+</div>
+
+<!-- STATS -->
+<div class="stats-wrap">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-n">538</div><div class="stat-l">Radio Station</div></div>
+    <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Beers Consumed</div></div>
+    <div class="stat"><div class="stat-n">3</div><div class="stat-l">Legends Present</div></div>
+    <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Legendary Rating</div></div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BLOG -->
+<div class="section" id="blog">
+  <p class="section-eyebrow">★ Barney Stinson — Field Correspondent</p>
+  <h2 class="section-title">THE CHRONICLE</h2>
+
+  <div class="blog-card">
+    <p class="blog-date">POV-Camera · 27-04-26 · Morning Dispatch</p>
+    <h3>PART I: THE MORNING OF LEGENDS</h3>
+    <p>Gentlemen — and also the two people named Rob and Nick who are absolutely reading this right now — I, Barney Stinson, have witnessed many legendary things in my time. I have seen the Northern Lights from a penthouse. I have high-fived a sitting prime minister. I once wore a suit so magnificent it made a grown man reconsider his entire career path.</p>
+    <p>But <span class="hl">NOTHING</span> — absolutely nothing in the gilded annals of human achievement — prepared me for witnessing one <span class="hl">REM VAN DER HEIJDEN</span> on Koningsdag 2026. True story.</p>
+    <div class="blockq">"It's not just a party. It's not just a day. It's the Netherlands looking the entire planet in the eye and saying: <em>hold my bier.</em>"</div>
+    <p>The morning began as all legendary mornings must: in orange. Head-to-toe, unironic, aggressively patriotic, <span class="go">magnificently Dutch</span> orange. Rem — our protagonist, our hero, our Guy In The #22 Netherlands Jersey — stepped into the streets looking like a man who had been personally hand-crafted by the universe to celebrate the King's birthday.</p>
+    <p>The streets? Already absolute magnificent madness. Oliebollen in the air. Music thumping from seventeen directions simultaneously. Canals glittering. And through it all: Rem Van Der Heijden. Corona Extra in hand. Orange bandana at the neck. Sunglasses on. Strutting down the cobblestones like <span class="go">he personally invented the holiday.</span> Which, let's be honest, spiritually speaking — he kind of did.</p>
+  </div>
+
+  <div class="blog-card">
+    <p class="blog-date">Afternoon Dispatch · 538 Koningsdag Stage · Peak Legendary</p>
+    <h3>PART II: THE HOLY TRINITY ASSEMBLES</h3>
+    <p>Now, every legend needs his crew. Batman had Robin — mediocre at best. The Three Musketeers had each other — historically significant but frankly under-dressed. And Rem Van Der Heijden had <span class="hl">ROB</span> and <span class="hl">NICK</span>.</p>
+    <p>When these three men assembled at the 538 Koningsdag stage, the earth did not visibly shake. No divine light descended from the heavens. The clouds did not dramatically part to reveal celestial trumpeters. But here's the thing — <span class="go">it didn't need to. The vibe was already transcendent.</span></p>
+    <p>Rob: looking sharp. Nick: looking sharp. Rem: looking <span class="hl">LEGENDARY</span>. The three of them, orange-clad, beers raised, standing in front of that enormous 538 Koningsdag crown structure — art historians will one day study this image in universities. They will write peer-reviewed papers about it. They will call it <span class="go">"The Orange Trinity: A Study in Dutch Magnificence."</span></p>
+    <div class="blockq">"Three guys walk into a Koningsdag party. The punchline? There is no punchline. Just pure, uncut, premium-grade LEGENDARY. True story."</div>
+    <p>The afternoon unfolded with the grace befitting three champions of the Dutch spirit. Beers were consumed — let the record reflect this. Songs were sung. The 538 DJ pumped beats into the orange-soaked crowd and Rem, Rob, and Nick were right there at the centre of it all, which is exactly where legends belong.</p>
+  </div>
+
+  <div class="blog-card">
+    <p class="blog-date">Evening Chronicle · Dusk · The Golden Hour of Legend</p>
+    <h3>PART III: WHEN THE SUN WENT DOWN ON LEGENDS</h3>
+    <p>As the sun began its glorious descent over the Netherlands — a country which had the outstanding architectural wisdom to be completely flat, ensuring superior sunset visibility for hundreds of kilometres in every direction — Koningsdag shifted into its final, most legendary phase.</p>
+    <p>The 538 stage blazed with light. The crowd was a sea of orange so vast it could probably be seen from space, which would explain why the international space station dips lower over the Netherlands every April 27th. Completely unverified. But I choose to believe it.</p>
+    <div class="blockq">"Koningsdag is already legendary. Rem, Rob, and Nick ON Koningsdag? That's legendary squared. Legen — wait for it — DARY²."</div>
+    <p>The timestamp on the photos reads <span class="hl">27-04-26</span>. But I prefer to think of it as: <span class="go">The Day Three Legends Made Koningsdag Even More Legendary Than It Already Was, Which Was Already Extremely Legendary.</span></p>
+    <p>Was it the best Koningsdag in recorded Dutch history? I have consulted my notes — meticulous, leather-bound, monogrammed — and the answer is: <span class="hl">YES. OBVIOUSLY. IT ISN'T EVEN CLOSE.</span></p>
+    <p>Koningsdag 2026: <span class="hl">LEGENDARY.</span> Rem Van Der Heijden: <span class="hl">LEGENDARY.</span> Rob: <span class="hl">LEGENDARY.</span> Nick: <span class="hl">LEGENDARY.</span> The Netherlands: <span class="hl">LEGENDARY.</span> And Sadie, who had to miss this and is now doing a crossword puzzle about it: <span class="go">deeply, deeply missed — but also definitely LEGENDARY.</span></p>
+    <p style="margin-top:24px;font-family:'Space Mono',monospace;font-size:12px;color:var(--muted);"><em>— B. Stinson, Senior Correspondent for Legendary Events, filed from a very good location, 27 April 2026. Suit up.</em></p>
+  </div>
+</div>
+
+<!-- ORANGE DIVIDER -->
+<div class="orange-strip">★ &nbsp; ORANJE BOVEN &nbsp; ★ &nbsp; 27 APRIL 2026 &nbsp; ★ &nbsp; 538 KONINGSDAG &nbsp; ★</div>
+
+<!-- PHOTO SECTION -->
+<div class="section" id="photos">
+  <p class="section-eyebrow">★ Photo Evidence From The Field</p>
+  <h2 class="section-title">THE GALLERY</h2>
+  <div class="photo-grid">
+
+    <div class="photo-card">
+      <div class="photo-icon">🍺</div>
+      <div class="photo-tag-top">POV-CAMERA</div>
+      <div class="photo-pov">27-04-26</div>
+      <div class="photo-overlay">
+        <p class="photo-caption">Evening · 538 Stage</p>
+        <p class="photo-desc">Rem & the crew — legendary smiles, legendary fits</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-icon">👑</div>
+      <div class="photo-tag-top">STREETS</div>
+      <div class="photo-pov">27-04-26</div>
+      <div class="photo-overlay">
+        <p class="photo-caption">Daytime · City Centre</p>
+        <p class="photo-desc">Rem. Corona Extra. The Netherlands jersey. Iconic.</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-icon">🧡</div>
+      <div class="photo-tag-top">THE TRIO</div>
+      <div class="photo-pov">27-04-26</div>
+      <div class="photo-overlay">
+        <p class="photo-caption">538 Stage Backdrop</p>
+        <p class="photo-desc">Rem · Rob · Nick — The Orange Trinity</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-icon">🍻</div>
+      <div class="photo-tag-top">KONINGSDAG</div>
+      <div class="photo-pov">27-04-26</div>
+      <div class="photo-overlay">
+        <p class="photo-caption">Afternoon · 538 Event</p>
+        <p class="photo-desc">Beers up. Energy legendary. Smiles mandatory.</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-icon">😂</div>
+      <div class="photo-tag-top">GOLDEN HOUR</div>
+      <div class="photo-pov">27-04-26</div>
+      <div class="photo-overlay">
+        <p class="photo-caption">Candid · Best Friends</p>
+        <p class="photo-desc">Pure unfiltered legendary laughter. Barney approved.</p>
+      </div>
+    </div>
+
+    <div class="photo-card">
+      <div class="photo-icon">😎</div>
+      <div class="photo-tag-top">SOLO LEGEND</div>
+      <div class="photo-pov">27-04-26</div>
+      <div class="photo-overlay">
+        <p class="photo-caption">Street Level · Full Drip</p>
+        <p class="photo-desc">Sunglasses on. Can in hand. Legend mode: activated.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- CROSSWORD -->
+<div class="xword-section" id="puzzle">
+  <div class="xword-header">
+    <div class="xword-badge">★ OFFICIAL PUZZLE ★</div>
+    <h2>Sadie Is Bored So Is Doing<br>This Awesome Crossword Puzzle</h2>
+    <p class="xword-subtitle">All answers are Koningsdag related · Featuring: Rem, Rob, Nick &amp; Sadie · Difficulty: Legendary</p>
+  </div>
+
+  <div class="xword-layout">
+    <div class="xword-grid-wrapper">
+      <div id="xgrid"></div>
+      <div class="xcontrols">
+        <button class="btn btn-p" onclick="checkAnswers()">✓ CHECK ANSWERS</button>
+        <button class="btn btn-s" onclick="revealAll()">REVEAL ALL</button>
+        <button class="btn btn-d" onclick="clearAll()">CLEAR</button>
+      </div>
+      <div id="xmsg"></div>
+    </div>
+
+    <div class="xclues">
+      <div class="xclue-group">
+        <h4>ACROSS →</h4>
+        <div class="xclue"><span class="xclue-n">1</span><span>The ultimate Dutch King's birthday celebration — the biggest party of the year (10)</span></div>
+        <div class="xclue"><span class="xclue-n">5</span><span>The most legendary man at the 538 stage — goes by first name only, like a Dutch Beyoncé (3)</span></div>
+        <div class="xclue"><span class="xclue-n">6</span><span>Dutch word for what everyone was holding in every single photo taken that day (4)</span></div>
+        <div class="xclue"><span class="xclue-n">7</span><span>Legend Squad Member #2 — name rhymes with "job", which he did NOT do that day (3)</span></div>
+        <div class="xclue"><span class="xclue-n">8</span><span>The brilliant, talented, not-at-all-bored person who assembled this very crossword puzzle (5)</span></div>
+        <div class="xclue"><span class="xclue-n">9</span><span>Dutch word for party — which is exactly what Koningsdag is (5)</span></div>
+        <div class="xclue"><span class="xclue-n">10</span><span>The legendary Koningsdag flea market where Dutch people sell their childhood toys for €0.50 (9)</span></div>
+      </div>
+      <div class="xclue-group">
+        <h4>DOWN ↓</h4>
+        <div class="xclue"><span class="xclue-n">2</span><span>The Dutch national colour — worn head to toe, no exceptions, on this sacred day (6)</span></div>
+        <div class="xclue"><span class="xclue-n">3</span><span>Legend Squad Member #3 — completing the holy trinity of Koningsdag greatness (4)</span></div>
+        <div class="xclue"><span class="xclue-n">4</span><span>Dutch capital city where Koningsdag goes absolutely, magnificently, legendarily mental (9)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">★ LEGENDARY ★</div>
+  <p>KONINGSDAG 2026 &nbsp;·&nbsp; REM VAN DER HEIJDEN &nbsp;·&nbsp; ROB &nbsp;·&nbsp; NICK &nbsp;·&nbsp; SADIE &nbsp;·&nbsp; ORANJE BOVEN</p>
+  <p style="margin-top:6px;">A BARNEY STINSON PRODUCTION &nbsp;·&nbsp; TRUE STORY.</p>
+</footer>
+
+<script>
+const ROWS = 12, COLS = 10;
+
+const sol = [
+  ['K','O','N','I','N','G','S','D','A','G'],
+  [null,'R','E','M','I',null,null,null,'M',null],
+  [null,'A',null,null,'C',null,null,null,'S',null],
+  [null,'N',null,null,'K',null,null,null,'T',null],
+  [null,'J',null,null,null,null,null,null,'E',null],
+  [null,'E',null,null,null,'B','I','E','R',null],
+  ['R','O','B',null,null,null,null,null,'D',null],
+  ['S','A','D','I','E',null,null,null,'A',null],
+  [null,null,null,null,null,null,null,null,'M',null],
+  ['F','E','E','S','T',null,null,null,null,null],
+  [null,null,null,null,null,null,null,null,null,null],
+  ['V','R','I','J','M','A','R','K','T',null]
+];
+
+const nums = Array.from({length:ROWS},()=>Array(COLS).fill(null));
+nums[0][0]=1; nums[0][1]=2; nums[0][4]=3; nums[0][8]=4;
+nums[1][1]=5;
+nums[5][5]=6;
+nums[6][0]=7;
+nums[7][0]=8;
+nums[9][0]=9;
+nums[11][0]=10;
+
+function buildGrid(){
+  const g = document.getElementById('xgrid');
+  for(let r=0;r<ROWS;r++){
+    for(let c=0;c<COLS;c++){
+      const cell=document.createElement('div');
+      cell.className='xc';
+      if(sol[r][c]!==null){
+        cell.classList.add('on');
+        if(nums[r][c]!==null){
+          const n=document.createElement('span');
+          n.className='cn';
+          n.textContent=nums[r][c];
+          cell.appendChild(n);
+        }
+        const inp=document.createElement('input');
+        inp.type='text';
+        inp.maxLength=1;
+        inp.autocomplete='off';
+        inp.autocorrect='off';
+        inp.spellcheck=false;
+        inp.dataset.r=r;
+        inp.dataset.c=c;
+        inp.addEventListener('input',onInput);
+        inp.addEventListener('keydown',onKey);
+        inp.addEventListener('focus',onFocus);
+        cell.appendChild(inp);
+      }
+      g.appendChild(cell);
+    }
+  }
+}
+
+function getInput(r,c){
+  if(r<0||r>=ROWS||c<0||c>=COLS) return null;
+  return document.querySelector(`#xgrid input[data-r="${r}"][data-c="${c}"]`);
+}
+
+function onFocus(e){
+  document.querySelectorAll('#xgrid .xc').forEach(c=>c.style.background='');
+  const r=+e.target.dataset.r, c=+e.target.dataset.c;
+  const xc=document.querySelector(`#xgrid .xc:nth-child(${r*COLS+c+1})`);
+  if(xc) xc.style.background='rgba(255,98,0,.22)';
+}
+
+function onInput(e){
+  const v=e.target.value.replace(/[^a-zA-Z]/g,'').toUpperCase().slice(-1);
+  e.target.value=v;
+  if(v){
+    const r=+e.target.dataset.r, c=+e.target.dataset.c;
+    const candidates=[
+      [r,c+1],[r+1,c],[r,c-1],[r-1,c]
+    ];
+    for(const [nr,nc] of candidates){
+      const next=getInput(nr,nc);
+      if(next){next.focus();break;}
+    }
+  }
+  clearStyle(e.target);
+}
+
+function onKey(e){
+  const r=+e.target.dataset.r, c=+e.target.dataset.c;
+  const map={ArrowRight:[r,c+1],ArrowLeft:[r,c-1],ArrowDown:[r+1,c],ArrowUp:[r-1,c]};
+  if(map[e.key]){
+    const [nr,nc]=map[e.key];
+    const next=getInput(nr,nc);
+    if(next){e.preventDefault();next.focus();}
+  }
+  if(e.key==='Backspace'&&!e.target.value){
+    e.preventDefault();
+    const prev=getInput(r,c-1)||getInput(r-1,c);
+    if(prev) prev.focus();
+  }
+}
+
+function clearStyle(inp){
+  inp.classList.remove('ok','no');
+}
+
+function checkAnswers(){
+  let total=0,correct=0;
+  for(let r=0;r<ROWS;r++){
+    for(let c=0;c<COLS;c++){
+      if(sol[r][c]!==null){
+        const inp=getInput(r,c);
+        if(inp){
+          total++;
+          inp.classList.remove('ok','no');
+          if(inp.value.toUpperCase()===sol[r][c]){
+            inp.classList.add('ok');correct++;
+          } else {
+            inp.classList.add('no');
+          }
+        }
+      }
+    }
+  }
+  const msg=document.getElementById('xmsg');
+  if(correct===total){
+    msg.textContent='★ LEGENDARY! SUIT UP! ALL CORRECT! ★';
+    msg.className='win';
+  } else {
+    msg.textContent=`${correct}/${total} CORRECT — THE RED ONES NEED WORK!`;
+    msg.className='lose';
+  }
+}
+
+function revealAll(){
+  for(let r=0;r<ROWS;r++){
+    for(let c=0;c<COLS;c++){
+      if(sol[r][c]!==null){
+        const inp=getInput(r,c);
+        if(inp){inp.value=sol[r][c];inp.classList.remove('no');inp.classList.add('ok');}
+      }
+    }
+  }
+  const msg=document.getElementById('xmsg');
+  msg.textContent='ANSWERS REVEALED — SUIT UP AND TRY AGAIN!';
+  msg.className='lose';
+}
+
+function clearAll(){
+  document.querySelectorAll('#xgrid input').forEach(inp=>{
+    inp.value='';inp.classList.remove('ok','no');
+  });
+  const msg=document.getElementById('xmsg');
+  msg.textContent='';msg.className='';
+}
+
+buildGrid();
+</script>
+</body>
+</html>
